@@ -6,11 +6,7 @@ folder_names_in_filenames<-function(parent_folder,filetype) {
 
   dirs<-dir(parent_folder,full.names=T,include.dirs=F)
 
-  print(dirs)
-
   files<-list.files(parent_folder,pattern=filetype,recursive=T,full.names=F)
-
-  print(files)
 
   new_fileNames<-as.vector(length(files))
 
@@ -33,8 +29,6 @@ folder_names_in_filenames<-function(parent_folder,filetype) {
                                   new_fileNames[i]<-gsub(c,d,files[i],fixed=T)
                                  }
 
-print(new_fileNames)
-
-file.rename(paste0(parent_folder,files),
-             paste0(parent_folder,new_fileNames))
+  file.rename(paste0(parent_folder,files),
+                paste0(parent_folder,new_fileNames))
 }
